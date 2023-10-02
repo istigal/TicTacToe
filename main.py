@@ -24,7 +24,7 @@ def check_move(player):
             if (0 < pos < 10) and data[pos - 1] == " ":
                 data[pos - 1] = player["symbol"]
                 turns += 1
-                return
+                break
             else:
                 move = False
                 print("Invalid move!")
@@ -45,9 +45,10 @@ def check_winner(player):
     else:
         return True
 
-
-first_player["name"] = input("What's your name: ").title()
-second_player["name"] = input("What's the name of the another player: ").title()
+name = input("Press Y to type your name, press Enter to skip: ")
+if name.upper() == 'Y':
+  first_player["name"] = input("What's your name: ").title()
+  second_player["name"] = input("What's the name of the another player: ").title()
 
 
 def play_game():
